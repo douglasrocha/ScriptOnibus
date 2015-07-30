@@ -16,4 +16,14 @@ public class BusApplication
         
         return BusService.getListOfBusFromJson(content);
     }
+    
+    public static boolean insert(Bus bus)
+    {
+        return BusService.insert(bus);
+    }
+    
+    public static boolean insert(List<Bus> bus)
+    {
+        return BusService.insert(bus);
+    }
 }

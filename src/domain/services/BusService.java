@@ -1,7 +1,8 @@
 package domain.services;
 
-import infra.JacksonService;
-import infra.NetworkService;
+import infra.repositories.BusRepository;
+import infra.services.JacksonService;
+import infra.services.NetworkService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,13 +36,23 @@ public class BusService
             tempBus.setDataHora(obj[0].toString());
             tempBus.setOrdem(obj[1].toString());
             tempBus.setLinha(obj[2].toString());
-            tempBus.setLatitude((double) obj[3]);
-            tempBus.setLongitude((double) obj[4]);
-            tempBus.setVelocidade((double) obj[5]);
+            tempBus.setLatitude((double)obj[3]);
+            tempBus.setLongitude((double)obj[4]);
+            tempBus.setVelocidade((double)obj[5]);
             
             listBus.add(tempBus);
         }
         
         return listBus;
+    }
+    
+    public static boolean insert(Bus bus)
+    {
+        return BusRepository.insert(bus);
+    }
+    
+    public static boolean insert(List<Bus> bus)
+    {
+        return BusRepository.insert(bus);
     }
 }
